@@ -87,7 +87,7 @@ int main (int argc, char *argv[])
 		len = fstat.st_size;
 		buf = malloc(fstat.st_size);
 
-		int fd = open(argv[1], O_RDONLY);
+		int fd = open(argv[1], O_RDONLY, 0600);
 
 		if (fd < 0) {
 			fprintf(stderr, "Error - can't open file '%s': %s\n",
@@ -122,7 +122,7 @@ int main (int argc, char *argv[])
 
 		buf = malloc(size);
 
-		int fd = open(argv[1], O_CREAT | O_WRONLY | O_TRUNC);
+		int fd = open(argv[1], O_CREAT | O_WRONLY | O_TRUNC, 0600);
 
 		if (fd < 0) {
 			fprintf(stderr, "Error - can't create file '%s': %s\n",
